@@ -1,7 +1,5 @@
 # 🛍️ Sistema de Gestión de Inventario para Tienda en Línea
 
-## **📜 Enunciado**
-
 Una tienda en línea especializada en productos electrónicos y ropa ha decidido modernizar su sistema para gestionar el inventario, optimizar las ventas y brindar mejores promociones a sus clientes. Este sistema permitirá realizar tareas básicas de gestión, implementar estrategias de personalización y análisis, fundamentales para el crecimiento de la tienda.
 
 ---
