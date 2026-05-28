@@ -563,6 +563,7 @@ function inicializarFormularios() {
             const res = await fetch(`${API_BASE}/ai/forecast`);
             if (res.ok) {
                 const markdownText = await res.text();
+                console.log("Raw Markdown from backend:", markdownText);
                 // Sanitizar símbolos '<' sueltos que causan bugs de renderizado HTML
                 const cleanText = markdownText.replace(/</g, '&lt;');
 

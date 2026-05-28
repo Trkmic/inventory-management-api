@@ -86,7 +86,7 @@ public class GeminiAIService {
             contents.put("contents", List.of(parts));
 
             Map<String, Object> generationConfig = new HashMap<>();
-            generationConfig.put("maxOutputTokens", 800);
+            generationConfig.put("maxOutputTokens", 8192);
             generationConfig.put("temperature", 0.4);
             contents.put("generationConfig", generationConfig);
 
