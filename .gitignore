@@ -1,0 +1,22 @@
+# Maven build outputs
+**/target/
+**/target/classes/
+**/target/test-classes/
+
+# H2 database files
+**/inventory_db.mv.db
+**/inventory_db.trace.db
+
+# IDE configuration files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
