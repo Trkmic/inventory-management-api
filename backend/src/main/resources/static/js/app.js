@@ -564,7 +564,7 @@ function inicializarFormularios() {
             if (res.ok) {
                 const markdownText = await res.text();
                 // Sanitizar símbolos '<' sueltos que causan bugs de renderizado HTML
-                const cleanText = markdownText.replace(/<(?=[^a-zA-Z/])/g, '&lt;');
+                const cleanText = markdownText.replace(/</g, '&lt;');
 
                 // Formatear markdown usando MarkedJS
                 aiReport.innerHTML = marked.parse(cleanText);
