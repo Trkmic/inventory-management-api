@@ -306,7 +306,7 @@ function renderTablaInventario() {
             <td style="font-family: monospace; font-size: 0.85rem;">${spec}</td>
             <td>${stockHtml}</td>
             <td>$${p.precioBase.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</td>
-            <td style="color: var(--color-primary); font-weight: 700;">$${p.precioFinal.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</td>
+            <td style="color: var(--color-primary); font-weight: 700;">$${((p.precioFinal !== undefined && p.precioFinal !== null) ? p.precioFinal : calcularPrecioFinalLocal(p)).toLocaleString('es-AR', { minimumFractionDigits: 2 })}</td>
             <td>
                 <button class="btn btn-danger btn-delete" data-id="${p.id}" style="padding: 6px 12px; border-radius: 8px;">
                     <i class="fa-solid fa-trash-can"></i>
@@ -366,7 +366,7 @@ function renderSeleccionProductosVenta() {
 
         card.innerHTML = `
             <h4>${p.nombre}</h4>
-            <div class="price">$${p.precioFinal.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</div>
+            <div class="price">$${((p.precioFinal !== undefined && p.precioFinal !== null) ? p.precioFinal : calcularPrecioFinalLocal(p)).toLocaleString('es-AR', { minimumFractionDigits: 2 })}</div>
             <div class="stock">Stock: ${p.stock} u. (${spec})</div>
         `;
 
