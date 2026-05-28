@@ -1,6 +1,6 @@
 // app.js - Organique Inventory ERP Dashboard Controller
 
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = window.location.origin.includes('localhost') && !window.location.origin.includes('8080') ? 'http://localhost:8080/api' : '/api';
 
 // Estado global de la UI
 let productos = [];
@@ -87,18 +87,18 @@ async function cargarDatos() {
     try {
         const resProd = await fetch(`${API_BASE}/productos`);
         if (resProd.ok) {
-            productos = await resProd.ok ? await resProd.json() : [];
+            productos = await resProd.json();
         }
 
         const resComp = await fetch(`${API_BASE}/compras`);
         if (resComp.ok) {
-            compras = await resComp.ok ? await resComp.json() : [];
+            compras = await resComp.json();
         }
 
         actualizarDashboard();
     } catch (err) {
         console.error("Error al conectar con la API de Spring Boot:", err);
-        alert("No se pudo conectar con el servidor Spring Boot (¿está corriendo en http://localhost:8080?)");
+        alert("No se pudo conectar con el servidor Spring Boot (¿está corriendo en " + API_BASE + "?)");
     }
 }
 
@@ -306,7 +306,7 @@ function renderTablaInventario() {
             <td style="font-family: monospace; font-size: 0.85rem;">${spec}</td>
             <td>${stockHtml}</td>
             <td>$${p.precioBase.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</td>
-            <td style="color: var(--color-primary); font-weight: 700;">$${p.calcularPrecioFinal.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</td>
+            <td style="color: var(--color-primary); font-weight: 700;">$${p.precioFinal.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</td>
             <td>
                 <button class="btn btn-danger btn-delete" data-id="${p.id}" style="padding: 6px 12px; border-radius: 8px;">
                     <i class="fa-solid fa-trash-can"></i>
@@ -366,7 +366,7 @@ function renderSeleccionProductosVenta() {
 
         card.innerHTML = `
             <h4>${p.nombre}</h4>
-            <div class="price">$${p.calcularPrecioFinal.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</div>
+            <div class="price">$${p.precioFinal.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</div>
             <div class="stock">Stock: ${p.stock} u. (${spec})</div>
         `;
 

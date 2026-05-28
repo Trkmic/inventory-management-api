@@ -75,6 +75,11 @@ public abstract class Producto implements Serializable {
     // Método abstracto para calcular precio final (específico por tipo de producto)
     public abstract double calcularPrecioFinal();
 
+    // Getter para serialización automática JSON (precioFinal)
+    public double getPrecioFinal() {
+        return calcularPrecioFinal();
+    }
+
     @Override
     public String toString() {
         return "Producto{" +
