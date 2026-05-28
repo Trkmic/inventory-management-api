@@ -62,7 +62,7 @@ public class GeminiAIService {
                     "### HISTORIAL DE VENTAS:\n" + comprasStr + "\n\n" +
                     "Genera un reporte de abastecimiento predictivo y analítico en español. " +
                     "El reporte debe incluir:\n" +
-                    "1. ⚠️ **Alertas de Stock Crítico**: Lista de productos con stock bajo (< 10 unidades) o agotados.\n"
+                    "1. ⚠️ **Alertas de Stock Crítico**: Lista de productos con stock bajo (menor a 10 unidades) o agotados. Evita usar el símbolo '<' (menor que) en tu respuesta, escribe siempre 'menor a' en letras.\n"
                     +
                     "2. 🔥 **Tendencias de Demanda**: Productos más vendidos según el historial de ventas.\n" +
                     "3. 📦 **Recomendaciones de Reposición**: Cantidad sugerida a comprar para reponer stock para los próximos 30 días, detallando si conviene comprar más Ropa o Electrónicos según el movimiento.\n"
