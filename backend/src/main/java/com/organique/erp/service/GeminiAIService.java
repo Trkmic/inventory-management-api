@@ -102,7 +102,7 @@ public class GeminiAIService {
                     .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                     .build();
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString(java.nio.charset.StandardCharsets.UTF_8));
 
             if (response.statusCode() == 200) {
                 JsonNode root = objectMapper.readTree(response.body());

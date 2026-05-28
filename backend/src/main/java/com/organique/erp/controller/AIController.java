@@ -22,7 +22,7 @@ public class AIController {
     private GeminiAIService geminiAIService;
 
     // Obtener reporte predictivo de abastecimiento por IA
-    @GetMapping("/forecast")
+    @GetMapping(value = "/forecast", produces = "text/plain;charset=UTF-8")
     public ResponseEntity<String> obtenerReporteIA() {
         List<Producto> productos = inventarioService.obtenerTodosLosProductos();
         List<Compra> compras = inventarioService.obtenerTodasLasCompras();
