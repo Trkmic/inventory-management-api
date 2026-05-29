@@ -1,6 +1,6 @@
 // app.js - Organique Inventory ERP Dashboard Controller
 
-const API_BASE = window.location.origin.includes('localhost') && !window.location.origin.includes('8080') ? 'http://localhost:8080/api' : 'https://inventory-management-api.onrender.com/api';
+const API_BASE = window.location.origin.includes('localhost') && !window.location.origin.includes('8080') ? 'http://localhost:8080/api' : 'https://inventory-management-api-jne8.onrender.com/api';
 
 // Estado global de la UI
 let productos = [];
